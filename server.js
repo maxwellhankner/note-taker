@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 let app = express();
 
@@ -8,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", function(req, res) {
-    res.json(path.join(__dirname, "public/index.html"))
+    res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 
 app.listen(PORT, function(){
